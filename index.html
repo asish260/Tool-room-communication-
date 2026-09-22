@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07101d">
+  <meta name="description" content="Tool Room — a clean, flexible app for modern tool-room management.">
+  <title>Tool Room</title>
+  <style>
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#07101d;color:#eef4ff;line-height:1.6}
+    a{color:inherit;text-decoration:none}.nav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:18px 6vw;background:rgba(7,16,29,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.07)}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:700}.brand-mark{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;background:linear-gradient(135deg,#6ee7ff,#6b7cff);color:#06111e;font-weight:800}
+    .nav nav{display:flex;gap:24px;color:#b8c6db;font-size:14px}.hero{min-height:78vh;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:60px;padding:72px 7vw 50px;background:radial-gradient(circle at 75% 15%,rgba(78,114,255,.18),transparent 33%),radial-gradient(circle at 18% 20%,rgba(32,224,190,.12),transparent 28%)}
+    .eyebrow{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.15em;color:#76d8ff;margin-bottom:14px}.hero h1,.section h2,.download-section h2{font-size:clamp(2.5rem,6vw,5.5rem);line-height:1.03;letter-spacing:-.045em;margin:0 0 22px}
+    .hero p{max-width:680px;color:#aebcd0;font-size:1.08rem}.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin:30px 0 15px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border-radius:14px;font-weight:700;transition:.2s ease}
+    .btn.primary{background:linear-gradient(135deg,#70e4ff,#7788ff);color:#07101d;box-shadow:0 10px 35px rgba(92,138,255,.23)}.btn.primary:hover{transform:translateY(-2px)}.btn.secondary{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.035);color:#dbe7f8}
+    .meta{display:flex;gap:9px;color:#708197;font-size:13px}.hero-card{display:flex;justify-content:center}.phone{width:min(340px,78vw);aspect-ratio:.55;border-radius:40px;padding:10px;background:linear-gradient(145deg,#1c2a3f,#080d16);box-shadow:0 30px 90px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.09)}
+    .phone-top{width:34%;height:20px;border-radius:20px;background:#060a10;margin:4px auto 6px}.screen{height:calc(100% - 30px);border-radius:31px;padding:34px 22px;background:linear-gradient(180deg,#101d31,#0a1424);overflow:hidden}
+    .screen-title{font-size:30px;font-weight:800}.screen-sub{font-size:13px;color:#91a3ba;margin:3px 0 28px}.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.mini-card{min-height:112px;border-radius:18px;padding:16px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;justify-content:flex-end}
+    .mini-card b{font-size:15px}.mini-card span{font-size:11px;color:#7f90a7}.section{padding:92px 7vw;border-top:1px solid rgba(255,255,255,.055)}.section-head{max-width:850px;margin-bottom:38px}.section h2,.download-section h2{font-size:clamp(2rem,4vw,3.8rem)}
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{padding:26px;min-height:220px;border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.07)}
+    .card .icon{font-size:12px;color:#71dcff;font-weight:800;margin-bottom:42px}.card h3{font-size:18px;margin:0 0 8px}.card p{color:#90a2b8;font-size:14px;margin:0}.split{display:grid;grid-template-columns:1fr 1.1fr;gap:70px}
+    .why-list{display:grid;gap:10px}.why-list div{padding:20px 0;border-bottom:1px solid rgba(255,255,255,.07);display:grid;grid-template-columns:150px 1fr;gap:20px}.why-list span{color:#8fa1b7}
+    .download-section{margin:32px 7vw 80px;padding:48px;border-radius:30px;background:linear-gradient(135deg,rgba(82,225,224,.12),rgba(94,104,255,.18));border:1px solid rgba(255,255,255,.09);display:flex;align-items:center;justify-content:space-between;gap:32px}
+    .download-section p{color:#9fb0c5;margin-bottom:0}.btn.large{padding:18px 26px;white-space:nowrap}footer{display:flex;justify-content:space-between;padding:28px 7vw 42px;color:#6f8198;font-size:13px}
+    @media(max-width:900px){.nav nav{display:none}.hero{grid-template-columns:1fr;padding-top:54px}.hero-card{margin-top:10px}.cards{grid-template-columns:1fr 1fr}.split{grid-template-columns:1fr}.download-section{flex-direction:column;align-items:flex-start}}
+    @media(max-width:560px){.cards{grid-template-columns:1fr}.hero{padding-left:6vw;padding-right:6vw}.section{padding-left:6vw;padding-right:6vw}.why-list div{grid-template-columns:1fr;gap:5px}.download-section{margin-left:5vw;margin-right:5vw;padding:30px}.btn.large{width:100%}footer{flex-direction:column;gap:5px}.hero h1{font-size:3.15rem}}
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#top"><span class="brand-mark">TR</span><span>Tool Room</span></a>
+    <nav><a href="#features">Features</a><a href="#why">Why it helps</a><a href="#download">Download</a></nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">BUILT FOR MODERN TOOL ROOMS</div>
+        <h1>Tool Room, organized.</h1>
+        <p>Keep tool information, spares, maintenance activities and useful analytics in one simple place. Designed to stay flexible as your operation grows.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#download">Download APK</a>
+          <a class="btn secondary" href="#features">Explore features</a>
+        </div>
+        <div class="meta"><span>Version 1.0</span><span>•</span><span>Android APK</span></div>
+      </div>
+      <div class="hero-card">
+        <div class="phone">
+          <div class="phone-top"></div>
+          <div class="screen">
+            <div class="screen-title">Tool Room</div>
+            <div class="screen-sub">Everything important, one tap away.</div>
+            <div class="mini-grid">
+              <div class="mini-card"><b>Tools</b><span>Quick access</span></div>
+              <div class="mini-card"><b>Spares</b><span>Stay ready</span></div>
+              <div class="mini-card"><b>PM</b><span>Plan ahead</span></div>
+              <div class="mini-card"><b>Analytics</b><span>See trends</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="section-head"><span class="eyebrow">CORE FEATURES</span><h2>Built to reduce searching, waiting and guesswork.</h2></div>
+      <div class="cards">
+        <article class="card"><div class="icon">01</div><h3>Tool information</h3><p>Keep important tool details structured and easy to reach.</p></article>
+        <article class="card"><div class="icon">02</div><h3>Spare management</h3><p>Track critical spares and make shortages easier to spot.</p></article>
+        <article class="card"><div class="icon">03</div><h3>Maintenance support</h3><p>Bring routine maintenance information into one practical workflow.</p></article>
+        <article class="card"><div class="icon">04</div><h3>Useful analytics</h3><p>Turn day-to-day records into clearer operational insights.</p></article>
+      </div>
+    </section>
+
+    <section id="why" class="section split">
+      <div><span class="eyebrow">WHY THIS APP</span><h2>More than a digital register.</h2></div>
+      <div class="why-list">
+        <div><b>Faster access</b><span>Less time spent finding scattered information.</span></div>
+        <div><b>Cleaner workflows</b><span>A consistent place for everyday tool-room activities.</span></div>
+        <div><b>Expandable design</b><span>Add new modules and features as requirements grow.</span></div>
+        <div><b>Future ready</b><span>A foundation for more connected and data-driven work.</span></div>
+      </div>
+    </section>
+
+    <section id="download" class="download-section">
+      <div>
+        <span class="eyebrow">ANDROID DOWNLOAD</span>
+        <h2>APK download coming next.</h2>
+        <p>Once the APK is uploaded as a GitHub Release, this button can point directly to it.</p>
+      </div>
+      <a class="btn primary large" href="#" onclick="alert('APK link will be added after the website is live.');return false;">Download APK</a>
+    </section>
+  </main>
+
+  <footer><span>Tool Room</span><span>Built to keep improving.</span></footer>
+</body>
+</html>
